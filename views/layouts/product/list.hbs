@@ -1,0 +1,27 @@
+<h3>Data Master Product</h3>
+<h3>{{ message }}</h3>
+<h3><a href="/product" class="btn btn-primary">Tambah Product</a></h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td><center>Name</center> </td>
+            <td><center>Stock</center> </td>
+            <td><center>Action</center> </td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each product}}
+        <tr>
+            <td><center>{{this.name}}</center></td>
+            <td><center>{{ this.stock }}</center></td>
+            <td>
+                <center>
+                    <a href="/product/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true">Edit</i></a>
+                    |
+                    <a href="/product/delete/{{this._id}}"><i class="fa fa-trash fa-lg" aria-hidden="true">Hapus</i></a>
+                </center>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
