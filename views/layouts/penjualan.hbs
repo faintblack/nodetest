@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <label for="">No. Invoice</label>
-        <input type="number" min="1" class="form-control" name="no_inv" value="" readonly>
+        <input type="text" class="form-control" name="no_inv" value="" autofocus>
     </div>
     <div class="form-group">
         {{!-- <button type="submit" class="btn btn-info">Submit</button>
@@ -40,7 +40,7 @@
     <hr>
     <div class="form-group">
         <label for="">Cari Item</label>
-        <input type="text" class="form-control" id="search-box" name="date" autofocus >
+        <input type="text" class="form-control" id="search-box" name="date" >
         <br>
         <a class="btn btn-secondary" style="cursor: pointer;">Tambahkan kedalam keranjang</a>
     </div>
@@ -48,10 +48,26 @@
         <div style="text-align: center;">
             <h5>Daftar Belanja</h5>
         </div>
-        <div class="row" style="border-style:solid; border-radius:10px; padding: 15px; ">
-            <div style="width: 70%;">1. Product name</div>
-            <div style="width: 15%;">qty</div>
-            <div style="width: 15%;">delete</div>
-        </div>
+        <form action="">
+            <div id="items_div" class="row" style="border-style:solid; border-radius:10px; padding: 15px; ">
+                {{!-- Items --}}
+                <div class="row" style="width: 100%; margin-left:0px; margin-bottom:10px">
+                    <div style="width: 70%; margin:0px">
+                        <input id="product1" type="hidden" name="id_product[]" value="">
+                        1. Product name
+                    </div>
+                    <div style="width: 15%; margin-right:15px">
+                        <input id="product_qty1" type="number" min="1" name="quantity[]" style="width: 100%;">
+                    </div>
+                    <div style="width: 10%; margin:0px">
+                        <a href="">delete</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
+            </div>
+        </form>
     </div>
 </form>

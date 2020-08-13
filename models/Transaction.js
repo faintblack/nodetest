@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
         required:true
     },
     no_inv:{
-        type:Number,
+        type:String,
         required:true
     },
 }, {timestamps:false});

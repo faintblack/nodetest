@@ -21,41 +21,9 @@ router.post('/', (req, res) => {
     } else {
         updateData(req, res);
     }
-    
-})
+});
 
-function insertData(req, res){
-    var product = new Product();
-    product.name = req.body.name;
-    product.stock = req.body.stock;
-    product.save((err, doc) => {
-        if (!err) {
-            res.redirect('product/list');
-        } else {
-            console.log('Insert data is failed');
-        }
-    });
-}
-
-function updateData(req, res){
-    Product.findOneAndUpdate(
-        { _id : req.body._id }, 
-        req.body, 
-        { new : true},
-        (err, doc) => {
-            if (!err) {
-                res.redirect('product/list');
-            } else {
-                res.render('product/form', {
-                    viewTitle: 'Update Product',
-                    product:doc,
-                    message : err
-                })
-            }
-        }
-    )
-}
-
+// List Product
 router.get('/list', (req, res) => {
     Product.find((err, docs) => {
         if (!err) {
@@ -101,5 +69,36 @@ router.get('/delete/:id', (req, res) => {
     })
 });
 
+function insertData(req, res){
+    var product = new Product();
+    product.name = req.body.name;
+    product.stock = req.body.stock;
+    product.save((err, doc) => {
+        if (!err) {
+            res.redirect('product/list');
+        } else {
+            console.log('Insert data is failed');
+        }
+    });
+}
+
+function updateData(req, res){
+    Product.findOneAndUpdate(
+        { _id : req.body._id }, 
+        req.body, 
+        { new : true},
+        (err, doc) => {
+            if (!err) {
+                res.redirect('product/list');
+            } else {
+                res.render('product/form', {
+                    viewTitle: 'Update Product',
+                    product:doc,
+                    message : err
+                })
+            }
+        }
+    )
+}
 
 module.exports = router;
