@@ -16,12 +16,13 @@
             <td><center>{{ this.stock }}</center></td>
             <td>
                 <center>
-                    <a href="/product/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true">Edit</i></a>
+                    <a href="/product/{{this._id}}">Edit</a>
                     |
-                    <a href="/product/delete/{{this._id}}"><i class="fa fa-trash fa-lg" aria-hidden="true">Hapus</i></a>
+                    <a href="/product/delete/{{this._id}}">Hapus</a>
                 </center>
             </td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<h6><a href="/">Home</a></h6>

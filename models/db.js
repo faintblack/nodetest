@@ -14,3 +14,4 @@ mongoose.connect('mongodb://localhost/nodetest', {
 });
 
 require('./Product');
+require('./Transaction');

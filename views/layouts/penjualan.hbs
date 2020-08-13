@@ -1,0 +1,57 @@
+<h3>Form Penjualan</h3>
+<h6><a href="/product/list" >Data Product</a></h6>
+{{!-- <table class="table table-striped">
+    <thead>
+        <tr>
+            <td><center>Name</center> </td>
+            <td><center>Stock</center> </td>
+            <td><center>Action</center> </td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each product}}
+        <tr>
+            <td><center>{{this.name}}</center></td>
+            <td><center>{{ this.stock }}</center></td>
+            <td>
+                <center>
+                    <a href="/product/{{this._id}}">Edit</a>
+                    |
+                    <a href="/product/delete/{{this._id}}">Hapus</a>
+                </center>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table> --}}
+<form action="/product" method="post" autocomplete="off">
+    <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" class="form-control" name="date" value="{{date}}" readonly >
+    </div>
+    <div class="form-group">
+        <label for="">No. Invoice</label>
+        <input type="number" min="1" class="form-control" name="no_inv" value="" readonly>
+    </div>
+    <div class="form-group">
+        {{!-- <button type="submit" class="btn btn-info">Submit</button>
+        <a href="/product/list" class="btn btn-primary">List Product</a> --}}
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="">Cari Item</label>
+        <input type="text" class="form-control" id="search-box" name="date" autofocus >
+        <br>
+        <a class="btn btn-secondary" style="cursor: pointer;">Tambahkan kedalam keranjang</a>
+    </div>
+    <div class="container">
+        <div style="text-align: center;">
+            <h5>Daftar Belanja</h5>
+        </div>
+        <div class="row" style="border-style:solid; border-radius:10px; padding: 15px; ">
+            <div style="width: 70%;">1. Product name</div>
+            <div style="width: 15%;">qty</div>
+            <div style="width: 15%;">delete</div>
+        </div>
+    </div>
+</form>

@@ -26,6 +26,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+// Home Route
+app.get('/', (req, res) => {
+    var dateTime = new Date();
+    res.render('penjualan',{
+        date : dateTime.toISOString().split('T')[0]
+    });
+});
+
 app.listen(7588, () => {
     console.log('Server is running at port 7588');
 });
