@@ -1,29 +1,5 @@
 <h3>Form Penjualan</h3>
 <h6><a href="/product/list" >Data Product</a></h6>
-{{!-- <table class="table table-striped">
-    <thead>
-        <tr>
-            <td><center>Name</center> </td>
-            <td><center>Stock</center> </td>
-            <td><center>Action</center> </td>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each product}}
-        <tr>
-            <td><center>{{this.name}}</center></td>
-            <td><center>{{ this.stock }}</center></td>
-            <td>
-                <center>
-                    <a href="/product/{{this._id}}">Edit</a>
-                    |
-                    <a href="/product/delete/{{this._id}}">Hapus</a>
-                </center>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table> --}}
 <form action="/product" method="post" autocomplete="off">
     <div class="form-group">
         <label for="">Date</label>

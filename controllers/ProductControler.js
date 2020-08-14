@@ -9,7 +9,7 @@ router.get('/',(req, res) => {
     res.render('product/form', {
         // productName : 'Asus',
         // productStock: 7,
-        viewTitle:'Product Form'
+        viewTitle:'Form Master Product'
     });
 });
 
@@ -29,6 +29,7 @@ router.get('/list', (req, res) => {
         if (!err) {
             res.render('product/list', {
                 product : docs,
+                viewTitle : 'Data Master Product',
             });
         } else {
             res.render('product/list', {
@@ -43,7 +44,7 @@ router.get('/:id', (req, res) => {
     Product.findById(req.params.id, (err, doc) => {
         if (!err) {
             res.render('product/form', {
-                viewTitle: 'Update Product',
+                viewTitle: 'Form Update Product',
                 product:doc
             })
         } else {
@@ -69,6 +70,18 @@ router.get('/delete/:id', (req, res) => {
     })
 });
 
+// Search Product
+router.get('/search/:input', (req, res) => {
+	var input = req.params.input;
+	Product.findOne({ name: new RegExp('^' + input + '$', 'i') }, function(err, product) {
+		if (err) {
+			res.json(err);
+		} else {
+			res.json(product);
+		}
+	});
+});
+
 function insertData(req, res){
     var product = new Product();
     product.name = req.body.name;
@@ -76,6 +89,7 @@ function insertData(req, res){
     product.save((err, doc) => {
         if (!err) {
             res.redirect('product/list');
+            // res.redirect(201, 'product/list');   // statusCode just used if you make some API response
         } else {
             console.log('Insert data is failed');
         }
